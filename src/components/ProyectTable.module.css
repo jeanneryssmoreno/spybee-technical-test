@@ -21,20 +21,18 @@
 .row {
     background: white;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    /* Sombra suave */
     transition: transform 0.2s;
 }
 
 .row:hover {
     transform: scale(1.01);
-    /* Efecto al pasar el mouse */
+    
 }
 
 .cell {
     padding: 20px 15px;
 }
 
-/* Redondear esquinas de las filas */
 .cell:first-child {
     border-radius: 12px 0 0 12px;
 }
@@ -65,7 +63,6 @@
     padding: 5px;
     border-radius: 50%;
     margin-right: -10px;
-    /* Efecto de avatars encimados */
     border: 2px solid white;
     font-size: 0.7rem;
 }

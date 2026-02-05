@@ -3,16 +3,12 @@ import { useProjectStore } from '@/store/useProjectStore';
 import styles from './ProyectTable.module.css';
 
 export default function ProjectTable() {
-    // Traemos los datos y la página actual del Store
+    
     const { filteredProjects, currentPage, itemsPerPage } = useProjectStore();
-
-    // LÓGICA DE PAGINACIÓN (Punto 1 de la prueba)
-    // Calculamos qué proyectos mostrar (solo 10 por página)
     const lastItem = currentPage * itemsPerPage;
     const firstItem = lastItem - itemsPerPage;
     const currentProjects = filteredProjects.slice(firstItem, lastItem);
 
-    // Función para contar items (Incidentes, RFI, Tareas)
     const countItems = (incidents: any[] | undefined, type: string) => {
         return (incidents ?? []).filter(item => item.item?.toString().toLowerCase() === type.toLowerCase()).length;
     };
@@ -48,7 +44,7 @@ export default function ProjectTable() {
                             </td>
                             <td className={styles.cell}>
                                 <div className={styles.teamAvatars}>
-                                    {/* Mostramos las iniciales de los primeros 3 usuarios */}
+                                
                                     {(project.users ?? []).slice(0, 3).map((user, idx) => (
                                         <span key={idx} className={styles.avatar}>
                                             {user.name?.[0] ?? ''}{user.lastName?.[0] ?? ''}
