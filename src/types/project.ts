@@ -5,7 +5,6 @@ export interface User {
 
 export interface IncidentItem {
   item: string;
-  // other fields can be added as needed
 }
 
 export interface Project {
