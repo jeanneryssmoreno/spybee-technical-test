@@ -1,0 +1,76 @@
+.tableWrapper {
+    overflow-x: auto;
+    padding: 20px 0;
+}
+
+.table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 15px;
+    /* Esto separa las filas como en el mockup */
+}
+
+.table th {
+    text-align: left;
+    color: #888;
+    font-size: 0.8rem;
+    padding: 0 15px;
+    text-transform: uppercase;
+}
+
+.row {
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    /* Sombra suave */
+    transition: transform 0.2s;
+}
+
+.row:hover {
+    transform: scale(1.01);
+    /* Efecto al pasar el mouse */
+}
+
+.cell {
+    padding: 20px 15px;
+}
+
+/* Redondear esquinas de las filas */
+.cell:first-child {
+    border-radius: 12px 0 0 12px;
+}
+
+.cell:last-child {
+    border-radius: 0 12px 12px 0;
+}
+
+.statusBadge {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+.active {
+    background: #e6fffa;
+    color: #38b2ac;
+}
+
+.suspended {
+    background: #fff5f5;
+    color: #e53e3e;
+}
+
+.avatar {
+    background: #eee;
+    padding: 5px;
+    border-radius: 50%;
+    margin-right: -10px;
+    /* Efecto de avatars encimados */
+    border: 2px solid white;
+    font-size: 0.7rem;
+}
+
+.itemsGrid {
+    display: flex;
+    gap: 15px;
+}
