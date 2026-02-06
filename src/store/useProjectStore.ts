@@ -11,6 +11,7 @@ interface ProjectState {
   setProjects: (projects: Project[]) => void;
   setSelectedProject: (project: Project | null) => void;
   searchProjects: (query: string) => void;
+  sortProjects: (criteria: string) => void;
   setCurrentPage: (page: number) => void;
   setItemsPerPage: (n: number) => void;
 }
@@ -30,6 +31,24 @@ export const useProjectStore = create<ProjectState>((set) => ({
     ),
     currentPage: 1
   })),
+
+  sortProjects: (criteria) => set((state) => {
+    const sorted = [...state.filteredProjects].sort((a, b) => {
+      if (criteria === 'alphabetical') {
+        return a.title.localeCompare(b.title);
+      }
+      
+      const countItems = (project: Project, type: string) => 
+        (project.incidents ?? []).filter(i => i.item?.toString().toLowerCase() === type).length;
+
+      if (criteria === 'incidents') return countItems(b, 'incident') - countItems(a, 'incident');
+      if (criteria === 'rfi') return countItems(b, 'rfi') - countItems(a, 'rfi');
+      if (criteria === 'tasks') return countItems(b, 'task') - countItems(a, 'task');
+      
+      return 0;
+    });
+    return { filteredProjects: sorted };
+  }),
 
   setProjects: (projects) => set({ projects, filteredProjects: projects }),
 
