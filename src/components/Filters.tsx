@@ -22,9 +22,9 @@ export default function Filters() {
         onChange={(e) => sortProjects(e.target.value)}
       >
         <option value="alphabetical">Orden Alfabético</option>
-        <option value="incidents">Más Incidencias</option>
-        <option value="rfi">Más RFI</option>
-        <option value="tasks">Más Tareas</option>
+        <option value="incidents">Numero de Incidencias</option>
+        <option value="rfi">Numero de RFI</option>
+        <option value="tasks">Numero de Tareas</option>
       </select>
     </div>
   );

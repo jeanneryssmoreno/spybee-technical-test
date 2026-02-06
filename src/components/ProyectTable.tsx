@@ -4,7 +4,7 @@ import styles from './ProyectTable.module.css';
 
 export default function ProjectTable() {
     
-    const { filteredProjects, currentPage, itemsPerPage } = useProjectStore();
+    const { filteredProjects, currentPage, itemsPerPage, setSelectedProject } = useProjectStore();
     const lastItem = currentPage * itemsPerPage;
     const firstItem = lastItem - itemsPerPage;
     const currentProjects = filteredProjects.slice(firstItem, lastItem);
@@ -27,7 +27,12 @@ export default function ProjectTable() {
                 </thead>
                 <tbody>
                     {currentProjects.map((project) => (
-                        <tr key={project._id} className={styles.row}>
+                        <tr 
+                            key={project._id} 
+                            className={styles.row} 
+                            onClick={() => setSelectedProject(project)}
+                            style={{ cursor: 'pointer' }}
+                        >
                             <td className={styles.cell}>
                                 <div className={styles.projectTitle}>{project.title}</div>
                             </td>

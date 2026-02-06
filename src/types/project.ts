@@ -15,4 +15,9 @@ export interface Project {
   status?: string;
   users?: User[];
   incidents?: IncidentItem[];
+  position?: {
+    _id: string;
+    lat: number;
+    lng: number;
+  };
 }
