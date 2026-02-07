@@ -1,6 +1,7 @@
 "use client";
 import { useProjectStore } from '@/store/useProjectStore';
 import styles from './ProyectTable.module.css';
+import { IncidentItem } from '@/types/project';
 
 export default function ProjectTable() {
     
@@ -9,7 +10,7 @@ export default function ProjectTable() {
     const firstItem = lastItem - itemsPerPage;
     const currentProjects = filteredProjects.slice(firstItem, lastItem);
 
-    const countItems = (incidents: any[] | undefined, type: string) => {
+    const countItems = (incidents: IncidentItem[] | undefined, type: string) => {
         return (incidents ?? []).filter(item => item.item?.toString().toLowerCase() === type.toLowerCase()).length;
     };
 
@@ -39,7 +40,6 @@ export default function ProjectTable() {
                                     <div className={styles.titleContainer}>
                                         <div className={styles.projectTitle}>
                                             {project.title}
-                                            {/* Mock icon for cloud functionality if needed */}
                                         </div>
                                         <div className={styles.dateRange}>
                                             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
