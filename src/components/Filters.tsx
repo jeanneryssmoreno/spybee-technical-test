@@ -5,6 +5,7 @@ import styles from './Filters.module.css';
 
 export default function Filters() {
   const searchProjects = useProjectStore((state) => state.searchProjects);
+  const sortProjects = useProjectStore((state) => state.sortProjects);
   const filteredProjects = useProjectStore((state) => state.filteredProjects);
   
   return (
@@ -15,8 +16,8 @@ export default function Filters() {
       </div>
 
       <div className={styles.rightSection}>
-    
-        <button className={styles.toggleButton} style={{ border: 'none', background: 'transparent' }}>
+       
+        <button className={styles.toggleButton} style={{ border: 'none', background: 'transparent', cursor: 'default' }}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="12" y1="20" x2="12" y2="10"></line>
                 <line x1="18" y1="20" x2="18" y2="4"></line>
@@ -51,7 +52,6 @@ export default function Filters() {
             </button>
         </div>
 
-       
         <div className={styles.searchWrapper}>
             <span className={styles.searchIcon}>|</span>
             <input 
@@ -60,14 +60,22 @@ export default function Filters() {
                 className={styles.searchInput}
                 onChange={(e) => searchProjects(e.target.value)}
             />
-            
              <svg style={{ position: 'absolute', right: '10px', color: '#aaa' }} width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="11" cy="11" r="8"></circle>
                 <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
             </svg>
         </div>
 
-     
+        <select 
+          className={styles.sortSelect} 
+          onChange={(e) => sortProjects(e.target.value)}
+        >
+          <option value="alphabetical">Orden Alfabético</option>
+          <option value="incidents">Más Incidencias</option>
+          <option value="rfi">Más RFI</option>
+          <option value="tasks">Más Tareas</option>
+        </select>
+
         <button className={styles.createButton}>
              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="12" y1="5" x2="12" y2="19"></line>

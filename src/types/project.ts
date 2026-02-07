@@ -22,6 +22,13 @@ export interface IncidentItem {
   updatedAt: string;
 }
 
+export interface PartnerClient {
+  _id: string;
+  maxUsers?: number;
+  maxAdmins?: number;
+  maxStorage?: number;
+}
+
 export interface Project {
   _id: string;
   title: string;
@@ -45,7 +52,7 @@ export interface Project {
   city?: string;
   country?: string | number;
   lastUpdated?: string;
-  partnerClients?: any[];
+  partnerClients?: PartnerClient[];
   companyId?: string;
   address?: string;
   projectClientAdmin?: string[];
@@ -55,3 +62,4 @@ export interface Project {
   createdAt?: string;
   incidents?: IncidentItem[];
 }
+

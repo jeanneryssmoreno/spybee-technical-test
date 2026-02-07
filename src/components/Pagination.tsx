@@ -10,6 +10,7 @@ export default function Pagination() {
 
   if (totalPages <= 1) return null; 
 
+
   return (
     <div className={styles.pagination}>
       <button 

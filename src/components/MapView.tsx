@@ -6,7 +6,7 @@ import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import { useProjectStore } from '@/store/useProjectStore';
 
-// Fix para que los iconos de Leaflet se vean bien en Next.js
+
 const defaultIcon = L.icon({
   iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
   shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
@@ -14,12 +14,12 @@ const defaultIcon = L.icon({
   iconAnchor: [12, 41],
 });
 
-// SUB-COMPONENTE: Para mover la cámara cuando seleccionamos un proyecto
+
 function MapController({ coords }: { coords: [number, number] }) {
   const map = useMap();
   useEffect(() => {
     if (coords) {
-      map.flyTo(coords, 14, { duration: 1.5 }); // Efecto de "vuelo" suave
+      map.flyTo(coords, 14, { duration: 1.5 }); 
     }
   }, [coords, map]);
   return null;
@@ -41,7 +41,7 @@ export default function MapView() {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
 
-        {/* Punto 4: Marcadores de todos los proyectos filtrados */}
+      
         {filteredProjects.filter(p => p.position).map((project) => (
           <Marker 
             key={project._id} 
@@ -54,8 +54,6 @@ export default function MapView() {
             </Popup>
           </Marker>
         ))}
-
-        {/* Punto 5: Si el usuario selecciona un proyecto, el mapa se mueve */}
         {selectedProject?.position && (
           <MapController 
             coords={[selectedProject.position.lat, selectedProject.position.lng]} 

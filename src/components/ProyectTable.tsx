@@ -85,11 +85,11 @@ export default function ProjectTable() {
                             <td className={styles.cell}>
                                 <div className={styles.itemsWrapper}>
                                     <div className={styles.itemGroup}>
-                                        <span className={styles.itemNumber}>{countItems(project.incidents, 'incident')}</span>
+                                        <span className={styles.itemNumber}>{countItems(project.incidents, 'incidents')}</span>
                                         <span className={styles.itemLabel}>Incidencias</span>
                                     </div>
                                     <div className={styles.itemGroup}>
-                                        <span className={styles.itemNumber}>{countItems(project.incidents, 'rfi')}</span>
+                                        <span className={styles.itemNumber}>{countItems(project.incidents, 'RFI')}</span>
                                         <span className={styles.itemLabel}>RFI</span>
                                     </div>
                                     <div className={styles.itemGroup}>

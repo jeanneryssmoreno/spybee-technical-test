@@ -1,3 +1,4 @@
+
 .toolbarContainer {
   display: flex;
   justify-content: space-between;
@@ -71,7 +72,7 @@
 }
 
 .searchInput {
-  padding: 10px 15px 10px 40px; /* Left padding for magnifying glass icon */
+  padding: 10px 15px 10px 40px; 
   border: 1px solid #ddd;
   border-radius: 4px;
   font-size: 0.9rem;
@@ -83,7 +84,7 @@
   position: absolute;
   left: 12px;
   color: #aaa;
-  font-size: 0.8rem; /* Use text for icon if no SVG */
+  font-size: 0.8rem; 
 }
 
 .createButton {
@@ -102,4 +103,41 @@
 
 .createButton:hover {
   background-color: #FFB300;
+.container {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    align-items: center;
+    background: white;
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}}
+
+.input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border: 1px solid #e1e4e8;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.input:focus {
+    border-color: #3b82f6;
+}
+
+.select {
+    padding: 0.75rem 2rem 0.75rem 1rem;
+    border: 1px solid #e1e4e8;
+    border-radius: 8px;
+    background-color: white;
+    font-size: 0.95rem;
+    cursor: pointer;
+    outline: none;
+}
+
+.select:focus {
+    border-color: #3b82f6;
 }
