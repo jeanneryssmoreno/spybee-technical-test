@@ -1,0 +1,57 @@
+.topBar {
+  background-color: #333333; 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  color: white;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 40px;
+  width: auto;
+}
+
+.userProfile {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  background-color: #FFC107; 
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.userName {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.userRole {
+  font-size: 0.75rem;
+  color: #aaa;
+}
+
+.dropdownIcon {
+  font-size: 0.8rem;
+  color: #aaa;
+}

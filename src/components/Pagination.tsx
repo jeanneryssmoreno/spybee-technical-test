@@ -8,7 +8,8 @@ export default function Pagination() {
 
   const totalPages = Math.ceil(filteredProjects.length / itemsPerPage);
 
-  if (totalPages <= 1) return null; // Si hay pocos proyectos, no mostramos nada
+  if (totalPages <= 1) return null; 
+
 
   return (
     <div className={styles.pagination}>
