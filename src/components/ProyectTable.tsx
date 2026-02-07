@@ -14,7 +14,7 @@ export default function ProjectTable() {
     };
 
     return (
-        <div className={styles.tableWrapper}>
+        <div className={styles.tableContainer}>
             <table className={styles.table}>
                 <thead>
                     <tr>
@@ -31,10 +31,10 @@ export default function ProjectTable() {
                             key={project._id} 
                             className={styles.row} 
                             onClick={() => setSelectedProject(project)}
-                            style={{ cursor: 'pointer' }}
                         >
                             <td className={styles.cell}>
                                 <div className={styles.projectTitle}>{project.title}</div>
+                                <span className={styles.dateRange}>Oct 12 - Nov 12</span>
                             </td>
                             <td className={styles.cell}>{project.projectPlanData?.plan ?? '-'}</td>
                             <td className={styles.cell}>
@@ -48,26 +48,32 @@ export default function ProjectTable() {
                                 })()}
                             </td>
                             <td className={styles.cell}>
-                                <div className={styles.teamAvatars}>
-                                
+                                <div className={styles.teamContainer}>
                                     {(project.users ?? []).slice(0, 3).map((user, idx) => (
-                                        <span key={idx} className={styles.avatar}>
+                                        <div key={idx} className={styles.avatar}>
                                             {user.name?.[0] ?? ''}{user.lastName?.[0] ?? ''}
-                                        </span>
+                                        </div>
                                     ))}
-                                    {(project.users ?? []).length > 3 && <span>+{(project.users ?? []).length - 3}</span>}
+                                    {(project.users ?? []).length > 3 && (
+                                        <div className={`${styles.avatar} ${styles.avatarExtra}`}>
+                                            +{(project.users ?? []).length - 3}
+                                        </div>
+                                    )}
                                 </div>
                             </td>
                             <td className={styles.cell}>
-                                <div className={styles.itemsGrid}>
-                                    <div className={styles.itemCount}>
-                                        <strong>{countItems(project.incidents, 'incident')}</strong> Incidencias
+                                <div className={styles.itemsWrapper}>
+                                    <div className={styles.itemGroup}>
+                                        <span className={styles.itemNumber}>{countItems(project.incidents, 'incident')}</span>
+                                        <span className={styles.itemLabel}>Incidencias</span>
                                     </div>
-                                    <div className={styles.itemCount}>
-                                        <strong>{countItems(project.incidents, 'rfi')}</strong> RFI
+                                    <div className={styles.itemGroup}>
+                                        <span className={styles.itemNumber}>{countItems(project.incidents, 'rfi')}</span>
+                                        <span className={styles.itemLabel}>RFI</span>
                                     </div>
-                                    <div className={styles.itemCount}>
-                                        <strong>{countItems(project.incidents, 'task')}</strong> Tareas
+                                    <div className={styles.itemGroup}>
+                                        <span className={styles.itemNumber}>{countItems(project.incidents, 'task')}</span>
+                                        <span className={styles.itemLabel}>Tareas</span>
                                     </div>
                                 </div>
                             </td>
