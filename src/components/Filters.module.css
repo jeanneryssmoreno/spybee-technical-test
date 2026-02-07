@@ -1,38 +1,105 @@
-.container {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-    align-items: center;
-    background: white;
-    padding: 1rem;
-    border-radius: 12px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+.toolbarContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  background-color: transparent;
+  width: 100%;
 }
 
-.input {
-    flex: 1;
-    padding: 0.75rem 1rem;
-    border: 1px solid #e1e4e8;
-    border-radius: 8px;
-    font-size: 0.95rem;
-    outline: none;
-    transition: border-color 0.2s;
+.leftSection {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
-.input:focus {
-    border-color: #3b82f6;
+.title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
 }
 
-.select {
-    padding: 0.75rem 2rem 0.75rem 1rem;
-    border: 1px solid #e1e4e8;
-    border-radius: 8px;
-    background-color: white;
-    font-size: 0.95rem;
-    cursor: pointer;
-    outline: none;
+.projectCount {
+  background-color: #e0e0e0;
+  color: #666;
+  padding: 4px 12px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 500;
 }
 
-.select:focus {
-    border-color: #3b82f6;
+.rightSection {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.viewToggles {
+  display: flex;
+  background-color: white;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  overflow: hidden;
+}
+
+.toggleButton {
+  border: none;
+  background: white;
+  padding: 8px 12px;
+  cursor: pointer;
+  color: #888;
+  border-right: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toggleButton:last-child {
+  border-right: none;
+}
+
+.toggleButton:hover, .activeToggle {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.searchWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.searchInput {
+  padding: 10px 15px 10px 40px; /* Left padding for magnifying glass icon */
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  width: 250px;
+  outline: none;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 12px;
+  color: #aaa;
+  font-size: 0.8rem; /* Use text for icon if no SVG */
+}
+
+.createButton {
+  background-color: #FFC107;
+  color: #333;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.createButton:hover {
+  background-color: #FFB300;
 }

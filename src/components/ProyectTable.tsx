@@ -33,30 +33,51 @@ export default function ProjectTable() {
                             onClick={() => setSelectedProject(project)}
                         >
                             <td className={styles.cell}>
-                                <div className={styles.projectTitle}>{project.title}</div>
-                                <span className={styles.dateRange}>Oct 12 - Nov 12</span>
+                                <div className={styles.projectInfo}>
+                                    <div className={styles.statusLine} style={{ backgroundColor: project.status === 'active' ? '#38b2ac' : '#e53e3e' }}></div>
+                                    <div className={styles.projectImagePlaceholder}></div>
+                                    <div className={styles.titleContainer}>
+                                        <div className={styles.projectTitle}>
+                                            {project.title}
+                                            {/* Mock icon for cloud functionality if needed */}
+                                        </div>
+                                        <div className={styles.dateRange}>
+                                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                                <circle cx="12" cy="12" r="10"></circle>
+                                                <polyline points="12 6 12 12 16 14"></polyline>
+                                            </svg>
+                                            24 Nov 2023 - 24 Nov 2023
+                                        </div>
+                                    </div>
+                                </div>
                             </td>
-                            <td className={styles.cell}>{project.projectPlanData?.plan ?? '-'}</td>
+                            <td className={styles.cell}>
+                                {project.projectPlanData?.plan ? (
+                                    <span className={`${styles.planBadge} ${styles['plan' + project.projectPlanData.plan]}`}>
+                                        {project.projectPlanData.plan}
+                                    </span>
+                                ) : '-'}
+                            </td>
                             <td className={styles.cell}>
                                 {(() => {
                                     const statusClass = project.status ? styles[project.status] : '';
                                     return (
                                         <span className={`${styles.statusBadge} ${statusClass}`.trim()}>
-                                            {project.status ?? '-'}
+                                            {project.status === 'active' ? 'Activo' : project.status}
                                         </span>
                                     );
                                 })()}
                             </td>
                             <td className={styles.cell}>
                                 <div className={styles.teamContainer}>
-                                    {(project.users ?? []).slice(0, 3).map((user, idx) => (
+                                    {(project.users ?? []).slice(0, 5).map((user, idx) => (
                                         <div key={idx} className={styles.avatar}>
                                             {user.name?.[0] ?? ''}{user.lastName?.[0] ?? ''}
                                         </div>
                                     ))}
-                                    {(project.users ?? []).length > 3 && (
+                                    {(project.users ?? []).length > 5 && (
                                         <div className={`${styles.avatar} ${styles.avatarExtra}`}>
-                                            +{(project.users ?? []).length - 3}
+                                            +{(project.users ?? []).length - 5}
                                         </div>
                                     )}
                                 </div>
