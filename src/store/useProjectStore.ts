@@ -41,7 +41,7 @@ export const useProjectStore = create<ProjectState>((set) => ({
       const countItems = (project: Project, type: string) => 
         (project.incidents ?? []).filter(i => i.item?.toString().toLowerCase() === type).length;
 
-      if (criteria === 'incidents') return countItems(b, 'incident') - countItems(a, 'incident');
+      if (criteria === 'incidents') return countItems(b, 'incidents') - countItems(a, 'incidents');
       if (criteria === 'rfi') return countItems(b, 'rfi') - countItems(a, 'rfi');
       if (criteria === 'tasks') return countItems(b, 'task') - countItems(a, 'task');
       

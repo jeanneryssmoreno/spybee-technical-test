@@ -8,7 +8,6 @@ import styles from './Maps.module.css';
 
 const fixLeafletIcon = () => {
     if (typeof window !== 'undefined') {
-        // @ts-ignore
         delete L.Icon.Default.prototype._getIconUrl;
 
         L.Icon.Default.mergeOptions({
