@@ -25,12 +25,37 @@ export const useProjectStore = create<ProjectState>((set) => ({
 
   setSelectedProject: (project) => set({ selectedProject: project }),
 
-  searchProjects: (query) => set((state) => ({
-    filteredProjects: state.projects.filter(p =>
-      p.title.toLowerCase().includes(query.toLowerCase())
-    ),
-    currentPage: 1
-  })),
+  searchProjects: (query) => set((state) => {
+    if (!query.trim()) {
+      return { filteredProjects: state.projects, currentPage: 1 };
+    }
+
+    const filteredProjects = state.projects.filter(p => {
+      const title = p.title.toLowerCase();
+      const searchQuery = query.toLowerCase();
+      
+      // Check if the search query has leading zeros (e.g., "01", "02", "001")
+      const hasLeadingZero = /^0\d+$/.test(query);
+      
+      if (hasLeadingZero) {
+        // Extract the number from the query (e.g., "01" -> 1, "002" -> 2)
+        const searchNumber = parseInt(query, 10);
+        
+        // Extract the number from the project title (e.g., "Project-1" -> 1)
+        const match = title.match(/project-(\d+)$/);
+        if (match) {
+          const projectNumber = parseInt(match[1], 10);
+          return projectNumber === searchNumber;
+        }
+        return false;
+      }
+      
+      // Default behavior: partial match
+      return title.includes(searchQuery);
+    });
+
+    return { filteredProjects, currentPage: 1 };
+  }),
 
   sortProjects: (criteria) => set((state) => {
     const sorted = [...state.filteredProjects].sort((a, b) => {

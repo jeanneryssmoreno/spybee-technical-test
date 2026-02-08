@@ -129,3 +129,97 @@
 .itemNumber { display: block; font-size: 0.9rem; font-weight: 700; color: #333; }
 
 .itemLabel { font-size: 0.7rem; color: #888; }
+
+/* Responsive adjustments for ProyectTable */
+@media (max-width: 1024px) {
+  .tableContainer {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .table, .thead, .tbody, .row, .cell { 
+    display: block; 
+    width: 100%;
+  }
+
+  .table thead {
+    display: none; /* Hide headers on mobile */
+  }
+
+  .row {
+    margin-bottom: 20px;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    background-color: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .row:hover {
+    background-color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  }
+
+  .cell {
+    border: none;
+    padding: 12px 15px 12px 45%;
+    position: relative;
+    min-height: 45px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .cell:last-child {
+    border-bottom: none;
+  }
+
+  .cell::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 15px;
+    top: 12px;
+    width: 30%;
+    white-space: normal;
+    font-weight: 700;
+    color: #888;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+  }
+
+  .projectInfo {
+    padding-left: 0;
+    width: 100%;
+  }
+
+  .statusLine {
+    height: 100%;
+    margin-top: 0;
+    top: 0;
+    left: 0;
+  }
+
+  .itemsWrapper {
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .itemGroup {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .itemNumber {
+    font-size: 0.95rem;
+  }
+}

@@ -33,7 +33,7 @@ export default function ProjectTable() {
                             className={styles.row} 
                             onClick={() => setSelectedProject(project)}
                         >
-                            <td className={styles.cell}>
+                            <td className={styles.cell} data-label="Proyecto">
                                 <div className={styles.projectInfo}>
                                     <div className={styles.statusLine} style={{ backgroundColor: project.status === 'active' ? '#38b2ac' : '#e53e3e' }}></div>
                                     <div className={styles.projectImagePlaceholder}></div>
@@ -46,19 +46,19 @@ export default function ProjectTable() {
                                                 <circle cx="12" cy="12" r="10"></circle>
                                                 <polyline points="12 6 12 12 16 14"></polyline>
                                             </svg>
-                                            24 Nov 2023 - 24 Nov 2023
+                                            24 Nov 2025- 24 Nov 2025
                                         </div>
                                     </div>
                                 </div>
                             </td>
-                            <td className={styles.cell}>
+                            <td className={styles.cell} data-label="Plan">
                                 {project.projectPlanData?.plan ? (
                                     <span className={`${styles.planBadge} ${styles['plan' + project.projectPlanData.plan]}`}>
                                         {project.projectPlanData.plan}
                                     </span>
                                 ) : '-'}
                             </td>
-                            <td className={styles.cell}>
+                            <td className={styles.cell} data-label="Estado">
                                 {(() => {
                                     const statusClass = project.status ? styles[project.status] : '';
                                     return (
@@ -68,7 +68,7 @@ export default function ProjectTable() {
                                     );
                                 })()}
                             </td>
-                            <td className={styles.cell}>
+                            <td className={styles.cell} data-label="Equipo">
                                 <div className={styles.teamContainer}>
                                     {(project.users ?? []).slice(0, 5).map((user, idx) => (
                                         <div key={idx} className={styles.avatar}>
@@ -82,7 +82,7 @@ export default function ProjectTable() {
                                     )}
                                 </div>
                             </td>
-                            <td className={styles.cell}>
+                            <td className={styles.cell} data-label="Items por vencer">
                                 <div className={styles.itemsWrapper}>
                                     <div className={styles.itemGroup}>
                                         <span className={styles.itemNumber}>{countItems(project.incidents, 'incidents')}</span>
