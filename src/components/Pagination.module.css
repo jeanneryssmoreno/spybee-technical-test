@@ -33,3 +33,23 @@
     color: #64748b;
     font-weight: 500;
 }
+
+@media (max-width: 480px) {
+    .pagination {
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 0.5rem;
+    }
+    
+    .info {
+        width: 100%;
+        text-align: center;
+        order: -1;
+        margin-bottom: 0.5rem;
+    }
+    
+    .button {
+        flex: 1;
+        text-align: center;
+    }
+}
