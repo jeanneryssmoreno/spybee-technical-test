@@ -5,3 +5,15 @@
   overflow: hidden;
   position: relative;
 }
+
+@media (max-width: 768px) {
+  .mapContainer {
+    height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mapContainer {
+    height: 250px;
+  }
+}

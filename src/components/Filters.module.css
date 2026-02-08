@@ -168,3 +168,57 @@
 .select:focus {
     border-color: #3b82f6;
 }
+
+/* Responsive adjustments for Filters */
+@media (max-width: 1024px) {
+  .toolbarContainer {
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 15px 10px;
+  }
+  
+  .searchInput {
+    width: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .toolbarContainer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .rightSection {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+  
+  .searchWrapper {
+    flex: 1;
+    min-width: 200px;
+  }
+  
+  .searchInput {
+    width: 100%;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .rightSection {
+    gap: 10px;
+  }
+  
+  .sortSelect, .createButton {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .viewToggles {
+    display: none; 
+  }
+}
